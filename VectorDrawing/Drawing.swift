@@ -11,12 +11,13 @@ struct Drawing: View {
     @State var path: Path = .init()
     @GestureState var currentDrag: DragGesture.Value? = nil
     var livePath: Path {
-            var copy = path
-            if let state = currentDrag {
-                copy.update(for: state)
-            }
-            return copy
+        var copy = path
+        if let state = currentDrag {
+            copy.update(for: state)
         }
+        return copy
+    }
+
     var body: some View {
         ZStack(alignment: .topLeading) {
             Color.white
@@ -44,16 +45,33 @@ extension Path {
     }
 
     mutating func update(for state: DragGesture.Value) {
-        if isEmpty {
-            move(to: state.startLocation)
-        } else {
-            let isDrag = state.startLocation.distance(to: state.location) > 1
+        if !isEmpty,
+           let previous = elements.last {
+            var control1: CGPoint?
+            switch previous {
+            case let .quadCurve(to: to, control: control),
+                 let .curve(to: to, control1: _, control2: control):
+                control1 = control.mirrored(relativeTo: to)
+            default:
+                ()
+            }
+            let isDrag = state.location.distance(to: state.startLocation) > 1
             if isDrag {
                 let control = state.location.mirrored(relativeTo: state.startLocation)
-                addQuadCurve(to: state.startLocation, control: control)
+                if let c1 = control1 {
+                    addCurve(to: state.startLocation, control1: c1, control2: control)
+                } else {
+                    addQuadCurve(to: state.startLocation, control: control)
+                }
             } else {
-                addLine(to: state.startLocation)
+                if let c1 = control1 {
+                    addCurve(to: state.startLocation, control1: c1, control2: state.startLocation)
+                } else {
+                    addLine(to: state.startLocation)
+                }
             }
+        } else {
+            move(to: state.startLocation)
         }
     }
 }
@@ -103,7 +121,8 @@ struct PathPoint: View {
         case let .line(to: point),
              let .move(to: point):
             pathPoint(at: point)
-        case let .quadCurve(to: to, control: control):
+        case let .quadCurve(to: to, control: control),
+            let .curve(to: to, control1: _, control2: control):
             let mirrored = control.mirrored(relativeTo: to)
             Path { path in
                 path.move(to: control)
