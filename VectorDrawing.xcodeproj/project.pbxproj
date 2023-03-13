@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4111768D29B8CC4D00EAB556 /* VectorDrawingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111768C29B8CC4D00EAB556 /* VectorDrawingApp.swift */; };
-		4111768F29B8CC4D00EAB556 /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111768E29B8CC4D00EAB556 /* Drawing.swift */; };
+		4111768F29B8CC4D00EAB556 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111768E29B8CC4D00EAB556 /* DrawingView.swift */; };
 		4111769129B8CC4E00EAB556 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4111769029B8CC4E00EAB556 /* Assets.xcassets */; };
 		4111769429B8CC4E00EAB556 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4111769329B8CC4E00EAB556 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		4111768929B8CC4D00EAB556 /* VectorDrawing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VectorDrawing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4111768C29B8CC4D00EAB556 /* VectorDrawingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorDrawingApp.swift; sourceTree = "<group>"; };
-		4111768E29B8CC4D00EAB556 /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
+		4111768E29B8CC4D00EAB556 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		4111769029B8CC4E00EAB556 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4111769329B8CC4E00EAB556 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4111769529B8CC4E00EAB556 /* VectorDrawing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VectorDrawing.entitlements; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				4111768C29B8CC4D00EAB556 /* VectorDrawingApp.swift */,
-				4111768E29B8CC4D00EAB556 /* Drawing.swift */,
+				4111768E29B8CC4D00EAB556 /* DrawingView.swift */,
 				4111769029B8CC4E00EAB556 /* Assets.xcassets */,
 				4111769529B8CC4E00EAB556 /* VectorDrawing.entitlements */,
 				4111769229B8CC4E00EAB556 /* Preview Content */,
@@ -139,7 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4111768F29B8CC4D00EAB556 /* Drawing.swift in Sources */,
+				4111768F29B8CC4D00EAB556 /* DrawingView.swift in Sources */,
 				4111768D29B8CC4D00EAB556 /* VectorDrawingApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

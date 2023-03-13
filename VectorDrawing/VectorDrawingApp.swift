@@ -11,7 +11,7 @@ import SwiftUI
 struct VectorDrawingApp: App {
     var body: some Scene {
         WindowGroup {
-            Drawing()
+            DrawingView()
         }
     }
 }
